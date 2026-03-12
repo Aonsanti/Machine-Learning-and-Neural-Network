@@ -6,6 +6,7 @@ export default function NeuralNetwork() {
     const [prediction, setPrediction] = useState(null);
     const [loading, setLoading] = useState(false);
     const [datasets, setDatasets] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         fetch("http://localhost:8000/dataset-info")
@@ -17,16 +18,20 @@ export default function NeuralNetwork() {
     const handlePredict = async () => {
         if (!text) return;
         setLoading(true);
+        setError(null);
+        setPrediction(null);
         try {
             const res = await fetch("http://localhost:8000/predict/nn", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ text })
             });
+            if (!res.ok) throw new Error("Server error: " + res.status);
             const data = await res.json();
             setPrediction(data);
         } catch (err) {
             console.error(err);
+            setError("Cannot connect to Backend. Please make sure the Python server is running (python main.py)");
         } finally {
             setLoading(false);
         }
@@ -69,6 +74,12 @@ export default function NeuralNetwork() {
                             {prediction.prediction}
                         </p>
                         <p className="text-xs text-sky-300 mt-4 tabular-nums">Architecture: {prediction.method}</p>
+                    </div>
+                )}
+
+                {error && (
+                    <div className="mt-4 p-4 bg-red-900/40 border-2 border-red-500 rounded-xl text-red-400 font-normal text-sm">
+                        ⚠️ {error}
                     </div>
                 )}
             </div>

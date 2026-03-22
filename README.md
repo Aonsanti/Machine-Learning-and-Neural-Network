@@ -69,6 +69,5 @@ docker compose up --build
 
 ---
 
-## <img src="https://img.icons8.com/isometric/40/info.png" width="22" /> License & Attribution
 - **Dataset Source**: Kaggle (mbti_1.csv, IMDB Dataset.csv)
 - **Project Type**: Educational Research / AI Linguistic Analysis

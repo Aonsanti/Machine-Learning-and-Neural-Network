@@ -72,18 +72,18 @@ export default function NeuralNetwork() {
     };
 
     return (
-        <div className="bg-gray-700 text-white min-h-screen w-full flex flex-col items-center p-10 font-bold duration-200">
-            <Link to="/" className="self-start mb-10">
-                <button className="bg-gray-600 hover:bg-gray-500 rounded-xl px-6 py-2 transition-colors">Back to Home</button>
+        <div className="bg-gray-700 text-white min-h-screen w-full flex flex-col items-center p-4 md:p-10 font-bold duration-200">
+            <Link to="/" className="self-start mb-6 md:mb-10">
+                <button className="bg-gray-600 hover:bg-gray-500 rounded-xl px-4 py-2 text-sm md:text-base md:px-6 md:py-2 transition-colors">Back to Home</button>
             </Link>
 
-            <h1 className="text-4xl mb-10 text-center">Neural Network (MLP)</h1>
-            <p className="mb-5 text-gray-300 text-center">Multi-Layer Perceptron (MLP) model with TF-IDF trigrams for MBTI personality prediction</p>
+            <h1 className="text-2xl md:text-4xl mb-6 md:mb-10 text-center">Neural Network (MLP)</h1>
+            <p className="mb-8 text-gray-300 text-center text-sm md:text-base max-w-xl">Multi-Layer Perceptron (MLP) model with TF-IDF trigrams for MBTI personality prediction</p>
 
-            <div className="bg-gray-800 p-8 rounded-2xl shadow-xl w-full max-w-2xl flex flex-col gap-6 border-4 border-sky-500/30">
+            <div className="bg-gray-800 p-5 md:p-8 rounded-2xl shadow-xl w-full max-w-2xl flex flex-col gap-6 border-4 border-sky-500/30">
                 <div>
-                    <p className="text-2xl mb-2 text-sky-400">Please enter text for Neural Network:</p>
-                    <p className="text-sm text-gray-400 font-normal mb-4">(Example: "I love exploring new ideas and meeting people")</p>
+                    <p className="text-xl md:text-2xl mb-2 text-sky-400">Please enter text for Neural Network:</p>
+                    <p className="text-xs md:text-sm text-gray-400 font-normal mb-4">Example: "I love exploring new ideas and meeting people"</p>
                 </div>
 
                 <textarea
@@ -95,19 +95,19 @@ export default function NeuralNetwork() {
 
                 <button
                     onClick={handlePredict}
-                    className="bg-sky-600 hover:bg-sky-500 text-white rounded-xl py-5 text-2xl font-black shadow-lg hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50"
+                    className="bg-sky-600 hover:bg-sky-500 text-white rounded-xl py-4 md:py-5 text-lg md:text-2xl font-black shadow-lg hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50"
                     disabled={loading}
                 >
                     {loading ? "Processing..." : "Predict with Neural Network"}
                 </button>
 
                 {prediction && (
-                    <div className="mt-4 p-6 bg-sky-900/40 border-2 border-sky-500 rounded-2xl relative overflow-hidden">
-                        <p className="text-lg text-sky-400 font-bold mb-1">Neural Network Result (MLP):</p>
-                        <p className="text-6xl text-white drop-shadow-lg scale-110 origin-left transition-transform">
+                    <div className="mt-4 p-5 md:p-6 bg-sky-900/40 border-2 border-sky-500 rounded-2xl relative overflow-hidden text-center md:text-left">
+                        <p className="text-base md:text-lg text-sky-400 font-bold mb-1">Neural Network Result (MLP):</p>
+                        <p className="text-5xl md:text-6xl text-white drop-shadow-lg scale-110 origin-center md:origin-left transition-transform">
                             {prediction.prediction}
                         </p>
-                        <p className="text-xs text-sky-300 mt-4 tabular-nums">Architecture: {prediction.method}</p>
+                        <p className="text-[10px] md:text-xs text-sky-300 mt-4 tabular-nums">Architecture: {prediction.method}</p>
                     </div>
                 )}
 

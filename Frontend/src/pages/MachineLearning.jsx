@@ -79,18 +79,18 @@ export default function MachineLearning() {
     };
 
     return (
-        <div className="bg-gray-700 text-white min-h-screen w-full flex flex-col items-center p-10 font-bold duration-200">
-            <Link to="/" className="self-start mb-10">
-                <button className="bg-gray-600 hover:bg-gray-500 rounded-xl px-6 py-2 transition-colors">Back to Home</button>
+        <div className="bg-gray-700 text-white min-h-screen w-full flex flex-col items-center p-4 md:p-10 font-bold duration-200">
+            <Link to="/" className="self-start mb-6 md:mb-10">
+                <button className="bg-gray-600 hover:bg-gray-500 rounded-xl px-4 py-2 text-sm md:text-base md:px-6 md:py-2 transition-colors">Back to Home</button>
             </Link>
 
-            <h1 className="text-4xl mb-10 text-center">Machine Learning (Ensemble Model)</h1>
-            <p className="mb-5 text-gray-300 text-center">Ultra-fast ensemble model combining Logistic Regression, SGDClassifier (Modified Huber), and Multinomial Naive Bayes</p>
+            <h1 className="text-2xl md:text-4xl mb-6 md:mb-10 text-center">Machine Learning (Ensemble Model)</h1>
+            <p className="mb-8 text-gray-300 text-center text-sm md:text-base max-w-xl">Ultra-fast ensemble model combining Logistic Regression, SGDClassifier (Modified Huber), and Multinomial Naive Bayes</p>
 
-            <div className="bg-gray-800 p-8 rounded-2xl shadow-xl w-full max-w-2xl flex flex-col gap-6 border-4 border-green-500/30">
+            <div className="bg-gray-800 p-5 md:p-8 rounded-2xl shadow-xl w-full max-w-2xl flex flex-col gap-6 border-4 border-green-500/30">
                 <div>
-                    <p className="text-2xl mb-2 text-green-400">Enter a movie review to analyze:</p>
-                    <p className="text-sm text-gray-400 font-normal mb-4">(Example: "This movie was absolutely fantastic! The acting was superb.")</p>
+                    <p className="text-xl md:text-2xl mb-2 text-green-400">Enter a movie review to analyze:</p>
+                    <p className="text-xs md:text-sm text-gray-400 font-normal mb-4">Example: "This movie was absolutely fantastic! The acting was superb."</p>
                 </div>
 
                 <textarea
@@ -102,28 +102,32 @@ export default function MachineLearning() {
 
                 <button
                     onClick={handlePredict}
-                    className="bg-green-600 hover:bg-green-500 text-white rounded-xl py-5 text-2xl font-black shadow-lg hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50"
+                    className="bg-green-600 hover:bg-green-500 text-white rounded-xl py-4 md:py-5 text-lg md:text-2xl font-black shadow-lg hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50"
                     disabled={loading}
                 >
                     {loading ? "Analyzing Sentiment..." : "Analyze Sentiment"}
                 </button>
 
                 {prediction && (
-                    <div className="mt-4 p-6 bg-green-900/40 border-2 border-green-500 rounded-2xl relative overflow-hidden flex items-center justify-between">
-                        <div>
-                            <p className="text-lg text-green-400 font-bold mb-1">Sentiment Result (Ensemble):</p>
-                            <p className="text-6xl text-white drop-shadow-lg scale-110 origin-left transition-transform">
+                    <div className="mt-4 p-5 md:p-6 bg-green-900/40 border-2 border-green-500 rounded-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div className="text-center md:text-left order-2 md:order-1">
+                            <p className="text-base md:text-lg text-green-400 font-bold mb-1">Sentiment Result (Ensemble):</p>
+                            <p className="text-5xl md:text-6xl text-white drop-shadow-lg scale-110 origin-center md:origin-left transition-transform">
                                 {prediction.prediction}
                             </p>
-                            <p className="text-sm text-green-300 mt-4">
-                                <span className="text-red-400 font-bold">Neg: {prediction.prob_negative}%</span> <span className="text-gray-400 mx-2">|</span> <span className="text-blue-400 font-bold">Pos: {prediction.prob_positive}%</span> <span className="text-gray-400 mx-2">|</span> Words Analyzed: {text.trim().split(/\s+/).filter(w => w.length > 0).length}
-                            </p>
-                            <p className="text-xs text-green-300 mt-1 tabular-nums">Method: {prediction.method}</p>
+                            <div className="text-[10px] md:text-sm text-green-300 mt-4 leading-relaxed">
+                                <span className="text-red-400 font-bold">Neg: {prediction.prob_negative}%</span> 
+                                <span className="text-gray-400 mx-1 md:mx-2">|</span> 
+                                <span className="text-blue-400 font-bold">Pos: {prediction.prob_positive}%</span> 
+                                <span className="text-gray-400 mx-1 md:mx-2 block md:inline mt-1 md:mt-0"></span>
+                                Words Analyzed: {text.trim().split(/\s+/).filter(w => w.length > 0).length}
+                            </div>
+                            <p className="text-[10px] md:text-xs text-green-300 mt-1 tabular-nums italic">Method: {prediction.method}</p>
                         </div>
                         <img
                             src={prediction.prediction === "Positive" ? "/doakes_smile.png" : "/doakes_stare.png"}
                             alt={prediction.prediction === "Positive" ? "Smiling Doakes" : "Staring Doakes"}
-                            className="w-32 h-32 object-contain rounded-lg shadow-md border-2 border-gray-600 bg-gray-800"
+                            className="w-24 h-24 md:w-32 md:h-32 object-contain rounded-lg shadow-md border-2 border-gray-600 bg-gray-800 order-1 md:order-2"
                         />
                     </div>
                 )}
@@ -162,9 +166,9 @@ export default function MachineLearning() {
             </div>
 
             {/* --- Section: How it Works --- */}
-            <div className="mt-20 w-full max-w-4xl bg-gray-800 p-10 rounded-3xl border border-green-500/20 shadow-2xl">
-                <h2 className="text-3xl text-green-500 mb-8 flex items-center gap-3">
-                    <span className="bg-green-500 text-black px-3 py-1 rounded-lg text-xl">1</span>
+            <div className="mt-8 md:mt-20 w-full max-w-4xl bg-gray-800 p-6 md:p-10 rounded-2xl md:rounded-3xl border border-green-500/20 shadow-2xl">
+                <h2 className="text-xl md:text-3xl text-green-500 mb-6 md:mb-8 flex items-center gap-3">
+                    <span className="bg-green-500 text-black px-3 py-1 rounded-lg text-lg md:text-xl">1</span>
                     Model Code & Analysis
                 </h2>
 
@@ -176,7 +180,7 @@ export default function MachineLearning() {
                             and the final prediction is the class with the highest averaged probability. This reduces individual model
                             variance and captures both linear and non-linear patterns in sentiment expression.
                         </p>
-                        <pre className="bg-black/50 p-4 rounded-lg text-sm text-green-300 overflow-x-auto whitespace-pre-wrap">
+                        <pre className="bg-black/50 p-4 rounded-lg text-[10px] md:text-sm text-green-300 overflow-x-auto whitespace-pre">
                             {`# Feature Extraction
 vectorizer = TfidfVectorizer(
     max_features=15000,
@@ -210,7 +214,7 @@ ensemble.fit(X_train, y_train)`}
                             The IMDB dataset contains raw HTML text from movie reviews. Our preprocessing pipeline handles
                             multiple data imperfections to produce clean, normalized text for the model:
                         </p>
-                        <pre className="bg-black/50 p-4 rounded-lg text-sm text-green-300 overflow-x-auto whitespace-pre-wrap">
+                        <pre className="bg-black/50 p-4 rounded-lg text-[10px] md:text-sm text-green-300 overflow-x-auto whitespace-pre">
                             {`def clean_text(text):
     # 1. Remove HTML tags (<br /> etc.)
     text = BeautifulSoup(text, "html.parser").get_text()

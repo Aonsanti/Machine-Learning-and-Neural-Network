@@ -3,11 +3,11 @@ export default function Header() {
         <>
             <header className="shadow-lg shadow-black relative z-10">
                 <div className="flex items-center bg-[#15202b] text-white p-5">
-                    <h1 className="flex-1 text-center text-[24px] md:text-[3vw] duration-300 font-bold">
+                    <h1 className="flex-1 text-center text-xl md:text-3xl lg:text-4xl duration-300 font-bold px-4">
                         Machine Learning & Neural Network
                     </h1>
-                    <a href="https://github.com/Aonsanti/MBTI-Guesser" target="_blank" className="hover:opacity-75 transition-opacity">
-                        <img src="/github-white-icon.webp" alt="GitHub" width="48" height="48" />
+                    <a href="https://github.com/Aonsanti/MBTI-and-Sentiment-Prediction" target="_blank" className="hover:opacity-75 transition-opacity shrink-0">
+                        <img src="/github-white-icon.webp" alt="GitHub" className="w-8 h-8 md:w-12 md:h-12" />
                     </a>
                 </div>
             </header>

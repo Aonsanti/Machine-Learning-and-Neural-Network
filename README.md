@@ -27,8 +27,6 @@ The project meets and exceeds all training requirements:
 
 ---
 
-## <img src="https://img.icons8.com/isometric/40/settings.png" width="22" /> Technology Stack
-
 ### Frontend (User Interface)
 - **Framework**: React 19 (Vite)
 - **Styling**: Vanilla CSS + Tailwind v4 (Alpha/Vite Integration)
@@ -58,8 +56,6 @@ docker compose up --build
 
 - **Web UI**: [http://localhost:5173](http://localhost:5173)
 - **API Server**: [http://localhost:8000](http://localhost:8000)
-
-### <img src="https://img.icons8.com/isometric/40/computer.png" width="22" /> Manual Setup (Development)
 
 **Backend:**
 1. `cd Backend`

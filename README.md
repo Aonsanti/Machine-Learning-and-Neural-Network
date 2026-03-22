@@ -1,6 +1,6 @@
 # WebAI: MBTI & Sentiment Prediction Analysis
 
-[![Status](https://img.shields.io/badge/Status-Success-brightgreen?style=for-the-badge&logo=checkmarx)](https://github.com/Aonsanti/MBTI-Guesser)
+[![Status](https://img.shields.io/badge/Status-Success-brightgreen?style=for-the-badge&logo=checkmarx)](https://github.com/Aonsanti/MBTI-and-Sentiment-Prediction)
 [![Framework](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)](https://react.dev)
 [![Backend](https://img.shields.io/badge/FastAPI-Python-green?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com)
 [![DL](https://img.shields.io/badge/PyTorch-Deep_Learning-EE4C2C?style=for-the-badge&logo=pytorch)](https://pytorch.org)
